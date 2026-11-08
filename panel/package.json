@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "build": "node --check server.js && node --check engine/desk.js && node --check engine/replay.js && node --check engine/strategy.js",
+    "build": "node scripts/embed-assets.js && node --check server.js && node --check engine/desk.js && node --check engine/replay.js && node --check engine/strategy.js",
     "test": "node --test"
   },
   "engines": {
