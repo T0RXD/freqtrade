@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Freqtrade · SampleStrategy</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <span class="mark" aria-hidden="true">FT</span>
+        <div>
+          <p class="kicker">freqtrade</p>
+          <h1>SampleStrategy</h1>
+        </div>
+      </div>
+      <div class="top-meta">
+        <span class="pill">dry-run</span>
+        <span class="pill quiet">spot · 5m</span>
+        <time id="asof">—</time>
+        <button id="refresh" type="button">Actualizar</button>
+      </div>
+    </header>
+
+    <p id="banner" class="banner" hidden></p>
+
+    <div class="layout">
+      <aside>
+        <section>
+          <h2>Bot</h2>
+          <dl id="config"></dl>
+        </section>
+        <section>
+          <h2>Pares</h2>
+          <div id="pairs" class="pairs"></div>
+        </section>
+      </aside>
+
+      <main>
+        <section class="metrics" id="metrics"></section>
+        <section class="panel">
+          <div class="panel-head">
+            <h2 id="chart-title">Precio</h2>
+            <p id="chart-note"></p>
+          </div>
+          <canvas id="price" width="900" height="320"></canvas>
+        </section>
+        <section class="panel equity-panel">
+          <div class="panel-head">
+            <h2>Capital en seco</h2>
+            <p>Marca a mercado, comisión 0,10% por lado</p>
+          </div>
+          <canvas id="equity" width="900" height="110"></canvas>
+        </section>
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Posiciones abiertas</h2>
+            <p id="open-count"></p>
+          </div>
+          <div id="open-trades"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Cierres recientes</h2>
+            <p id="closed-count"></p>
+          </div>
+          <div id="closed-trades"></div>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <p>
+        Simulación en seco de SampleStrategy sobre velas públicas de Binance. No envía órdenes y no
+        usa claves del exchange. La entrada se hace en la apertura siguiente a la señal; el stop y
+        el ROI se resuelven dentro de la vela. Es una aproximación del motor de freqtrade, no una
+        cuenta real.
+      </p>
+    </footer>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
